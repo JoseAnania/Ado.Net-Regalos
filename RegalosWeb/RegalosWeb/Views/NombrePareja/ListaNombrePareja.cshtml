@@ -1,0 +1,44 @@
+﻿@using RegalosWeb.Models
+@{
+    ViewBag.Title = "ListarNombrePareja";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Listar</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Listar Parejas</h1>
+
+    <table border="1">
+
+        <tr>
+            <th>ID</th><th>Nombre 1</th><th>Apellido1</th><th>Nombre 2</th><th>Apellido 2</th><th>FechaCasamiento</th>
+        </tr>
+        @foreach (ParejaComercioDto PC in Model)
+        {
+            <tr><td>@PC.IdP</td><td>@PC.Nombre1</td><td>@PC.Apellido1</td><td>@PC.Nombre2</td><td>@PC.Apellido2</td><td>@PC.FechaCasamiento</td>
+           
+            <td>
+                <a href="/ListaRegalo/ListaRegalo?idP=@PC.IdP">
+                    <div class="row center" id="btnAceptar">
+                        <button class="btn waves-effect waves-#01579b light-blue darken-4" type="submit" name="Aceptar">
+                            Lista
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                    </a>
+            </td>
+        </tr>
+        }
+
+    </table>
+
+    @Html.ActionLink("Volver", "Index");
+
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+﻿@model RegalosWeb.Models.Articulo
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Eliminar</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Eliminar Articulo</h1>
+
+    <table>
+        @using (Html.BeginForm())
+        {
+            <tr><td>Ingrese el ID del Artículo</td><td>@Html.TextBoxFor(A => A.IdA)</td></tr>
+            <tr><td></td><td><input type="submit" value="Eliminar" /></td></tr>
+        }
+
+
+    </table>
+    <br />
+    @Html.ActionLink("Volver", "Index");
+</body>
+</html>

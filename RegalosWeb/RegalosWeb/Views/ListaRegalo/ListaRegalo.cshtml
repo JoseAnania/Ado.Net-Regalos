@@ -1,0 +1,30 @@
+﻿@using RegalosWeb.Models
+@{
+    ViewBag.Title = "ListaRegalo";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LRegalos Disponibles</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Lista Regalos</h1>
+
+    <table border="1">
+
+        <tr><th>Nº</th><th>Regalo</th></tr>
+
+        @foreach (RegaloDto R in Model)
+        {
+            <tr><td>@R.IdA</td><td>@R.DenominacionA</td></tr>
+
+        }
+    </table>
+
+    @Html.ActionLink("Volver", "Index");
+
+</body>
+</html>

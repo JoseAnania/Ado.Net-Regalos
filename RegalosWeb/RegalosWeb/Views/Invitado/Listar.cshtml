@@ -1,0 +1,30 @@
+﻿@using RegalosWeb.Models
+@{
+    ViewBag.Title = "Listar";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Listar</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Listar Invitados</h1>
+
+    <table border="1">
+
+        <tr><th>ID</th><th>Invitado</th><th>Pareja</th><th>Relación</th></tr>
+
+        @foreach (InvitadoParejaDto IP in Model)
+        {
+            <tr><td>@IP.IdI</td><td>@IP.NombreI</td><td>@IP.Nombre1 y @IP.Nombre2</td><td>@IP.NombreTR</td></tr>
+
+        }
+    </table>
+
+    @Html.ActionLink("Volver", "Index");
+
+</body>
+</html>

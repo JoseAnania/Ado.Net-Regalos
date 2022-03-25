@@ -1,0 +1,40 @@
+﻿@model RegalosWeb.Models.Articulo
+@{
+    ViewBag.Title = "Modificar";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Modificar</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Modificar Artículo</h1>
+
+    <table>
+        @using (Html.BeginForm())
+        {
+            <tr><td>Ingrese el ID del Artículo a Modificar</td><td>@Html.TextBoxFor(A => A.IdA)</td></tr>
+            <tr><td>Código</td><td>@Html.TextBoxFor(A => A.codigoA)</td></tr>
+            <tr><td>Artículo</td><td>@Html.TextBoxFor(A => A.DenominacionA)</td></tr>
+            <tr><td>Precio</td><td>@Html.TextBoxFor(A => A.PrecioUnitario)</td></tr>
+            <tr>
+                <td>Tipo de Comercio</td>
+                <td>
+                    @Html.LabelFor(model => model.IdTA, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("idTA", (SelectList)ViewBag.cboTipoArticulo, "Seleccione Tipo")
+                    </div>
+                </td>
+            </tr>
+            <tr><td></td><td><input type="submit" value="Modificar" /></td></tr>
+        }
+
+
+    </table>
+    <br />
+    @Html.ActionLink("Volver", "Index");
+</body>
+</html>

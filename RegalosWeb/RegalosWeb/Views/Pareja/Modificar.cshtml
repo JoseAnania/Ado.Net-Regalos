@@ -1,0 +1,42 @@
+﻿@model RegalosWeb.Models.Pareja
+@{
+    ViewBag.Title = "Modificar";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Modificar</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Modificar Pareja</h1>
+
+    <table>
+        @using (Html.BeginForm())
+        {
+            <tr><td>Ingrese el ID de la Pareja a Modificar</td><td>@Html.TextBoxFor(P => P.IdP)</td></tr>
+            <tr><td>Nombre 1</td><td>@Html.TextBoxFor(P => P.Nombre1)</td></tr>
+            <tr><td>Apellido 1</td><td>@Html.TextBoxFor(P => P.Apellido1)</td></tr>
+            <tr><td>Nombre 2</td><td>@Html.TextBoxFor(P => P.Nombre2)</td></tr>
+            <tr><td>Apellido 2</td><td>@Html.TextBoxFor(P => P.Apellido2)</td></tr>
+            <tr><td>Fecha Casamiento</td><td>@Html.TextBoxFor(P => P.FechaCasamiento)</td></tr>
+            <tr>
+                <td>Comercio</td>
+                <td>
+                    @Html.LabelFor(model => model.IdC, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("idC", (SelectList)ViewBag.cboComercio, "Seleccione Comercio")
+                    </div>
+                </td>
+            </tr>
+            <tr><td></td><td><input type="submit" value="Modificar" /></td></tr>
+        }
+
+
+    </table>
+    <br />
+    @Html.ActionLink("Volver", "Index");
+</body>
+</html>

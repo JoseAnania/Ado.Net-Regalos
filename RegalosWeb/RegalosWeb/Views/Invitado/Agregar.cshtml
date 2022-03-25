@@ -1,0 +1,49 @@
+﻿@model RegalosWeb.Models.Invitado
+
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Agregar Articulo</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Agregar Invitado</h1>
+
+    <table>
+
+        @using (Html.BeginForm())
+        {
+
+            <tr><td>Nombre</td><td>@Html.TextBoxFor(I => I.NombreI)</td></tr>
+
+            <tr>
+                <td>Pareja</td>
+                <td>
+                    @Html.LabelFor(model => model.IdP, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("idP", (SelectList)ViewBag.cboPareja, "Pareja")
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Tipo Relación</td>
+                <td>
+                    @Html.LabelFor(model => model.IdTR, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("idTR", (SelectList)ViewBag.cbotipoRelacion, "Tipo Relación")
+                    </div>
+                </td>
+            </tr>
+
+            <tr><td><input type="submit" value="Agregar" /></td></tr>
+        }
+
+    </table>
+</body>
+</html>
